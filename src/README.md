@@ -2,16 +2,9 @@ Prerequisites: Intel or AMD CPU with `adcx`/`adox`: i.e., Broadwell,
 Skylake, or newer. Linux with standard development tools plus `clang`
 plus `valgrind`.
 
-To download and unpack the latest version:
-
-        wget -m https://ctidh.isogeny.org/high-ctidh-latest-version.txt
-        version=$(cat ctidh.isogeny.org/high-ctidh-latest-version.txt)
-        wget -m https://ctidh.isogeny.org/high-ctidh-$version.tar.gz
-        tar -xzf ctidh.isogeny.org/high-ctidh-$version.tar.gz
-        cd high-ctidh-$version
 
 To compile, test for functionality, tune for multiplications, and tune
-for cycles, for all selected sizes (511, 512, 1024, 2048):
+for cycles, for all selected versions (csurf, csidh, ctidh):
 
         make
 
@@ -19,10 +12,13 @@ This takes a while because of all the testing and tuning. Any test
 failure will stop the build process. You can separately run
 
         make generic # size-independent tests, 8.6 minutes
-        make 511 # size 511, 1.5 minutes
-        make 512 # size 512, 1.7 minutes
-        make 1024 # size 1024, 25 minutes
-        make 2048 # size 2048, 549 minutes
+        make 512 # same as make
+        make ctidh_511
+        make csidh_511 
+        make csurf_512
+        make csurf_513
+
+To test different csurf_512 parameters, adjust KEY_SPACE in csurf.c.
 
 where the timings shown here are on a 3GHz Skylake core.
 
