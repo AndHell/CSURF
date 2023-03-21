@@ -21,3 +21,9 @@ can tie the performance of a state-of-the-art CSIDH implementation.
 ## Software
 based on [http://ctidh.isogeny.org/software.html]
 
+## Results
+![](benchmark/plots/mults_mcyc.png)
+Average cost in Mcyc for 1.300.000 runs.
+
+![](benchmark/plots/mults_combo.png)
+Average Fp-arithmetic cost for 1.300.000 runs.
